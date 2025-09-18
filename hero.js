@@ -5,10 +5,19 @@ class Hero{
         this.name = name;
         this.#health = health;
         this.attack = attack;
+        this.items = [];
     }
 
     getHealth(){
         return this.#health;
+    }
+
+    getName(){
+    console.log(this.name);
+    }
+
+    getAttack(){
+    console.log(this.attack);
     }
 
     getStats(){
@@ -16,6 +25,13 @@ class Hero{
         console.log("Name: "+ this.name);
         console.log("Health: "+ this.#health);
         console.log("Attack: "+ this.attack);
+    }
+
+    getAttack(){
+    console.log(this.attack);
+    }
+        totalAttack(){
+        return this.attack +this.items.reduce((sum,i)=>sum + i.bonusAttack,0);
     }
 }
 
@@ -35,25 +51,49 @@ class Mage extends Hero{
     }
 }
 
-function performAbility(hero){
-    hero.useAbility();
+class Item{
+    constructor(name,bonusAttack){
+        this.name = name;
+        this.bonusAttack = bonusAttack;
+    }
 }
 
-performAbility(Thorin);
-performAbility(Gandalf);
+const sword = new Item("Sword",5);
+const staff = new Item("Staff", 3);
 
-const warrior = new Warrior("Thorin",100,10);
+const Thorin = new Warrior("Thorin",100,10);
+Thorin.getName();
+Thorin.getAttack();
+
+Thorin.addItem(sword);
+console.log(Thorin.totalAttack());
+Thorin.addItem(sword);
+console.log(Thorin.totalAttack());
+Thorin.addItem(sword);
+console.log(Thorin.totalAttack());
+Thorin.addItem(sword);
+console.log(Thorin.totalAttack());
+
+
+//function performAbility(hero){
+    //hero.useAbility();
+//}
+
+//performAbility(Thorin);
+//performAbility(Gandalf);
+
+//const warrior = new Warrior("Thorin",100,10);
 //warrior.useAbility();
-Thorin.getStats();
+//Thorin.getStats();
 
-const mage = new Mage("Gandalf",80,8,50);
+//const mage = new Mage("Gandalf",80,8,50);
 //mage.useAbility();
-Gandalf.getStats();
+//Gandalf.getStats();
 
 function performAbility(hero){
     console.log("\n");
     hero.useAbility();
 }
 
-performAbility(Thorin);
-performAbility(Gandalf);
+//performAbility(Thorin);
+//performAbility(Gandalf);
