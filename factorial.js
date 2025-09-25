@@ -40,13 +40,13 @@ function computeFactorial(){
                 console.log("Please enter a non-negative integer");
             } else {
 
-                let fact = 1;
+                let facts = 1;
 
                     for (let i = 1; i <= num ; i++){
-                        fact *=i;
+                        facts *=i;
                     }
 
-                    console.log("The factorial of "+ num + " is " + fact);
+                    console.log("The factorial of "+ num + " is " + facts);
                 }
             backToMenu();
         });
