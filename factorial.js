@@ -30,9 +30,6 @@ function mainMenu(){
     })
 }
 
-
-
-
 function computeFactorial(){
     console.log("Factorial");
             
